@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>乐淘商品详情</title>
+  <!-- 引入浏览器的默认样式 -->
+  <link rel="stylesheet" href="../css/reset.css">
+  <!-- 引入字体图标库(在该项目中我们用font-awesome字体图标 不用MUI自带的) -->
+  <link rel="stylesheet" href="../lib/fontAwesome/css/font-awesome.css">
+  <!-- 引入MUI的css库 -->
+  <link rel="stylesheet" href="../lib/mui/css/mui.min.css">
+  <!--  引入公共样式 -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- 引入当前页面的样式 -->
+  <link rel="stylesheet" href="../css/detail.css">
+  <!-- 引入网站的favicon -->
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <!-- 1.头部 -->
+  <header class="lt-header  mui-bar mui-bar-nav">
+    <!-- /mui-plus-visible 是让a标签隐藏 -->
+    <a class="mui-icon mui-icon-bars mui-pull-left mui-plus-visible"></a>
+    <!-- mui-pull-right右浮动 -->
+    <a href="./search/search.html" id="search" class="fa fa-home mui-pull-right lt-header-search"></a>
+    <a href="./search/search.html" class="fa fa-arrow-left mui-pull-left lt-header-search lt-header-bank"></a>
+    <h1 class="mui-title lt-header-title">
+      商品详情
+    </h1>
+  </header>
+  <!-- 2.底部 -->
+  <nav class="mui-bar mui-bar-tab lt-prduct-footer">
+    <span class="fa fa-shopping-cart product-shopping"></span>
+    <a href="javascript:;" class="product-cart">加入购物车</a>
+    <a href="javascript:;" class="product-buy">立即购买</a>
+  </nav>
+  <!-- 3.滚动区域 -->
+  <div class="mui-content  mui-scroll-wrapper" >
+    <div class="mui-scroll">
+      <!--这里放置真实显示的DOM内容-->
+
+      <!-- 轮播图 -->
+      <div id="slider" class="mui-slider">
+        <div class="mui-slider-group">
+          <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+          <div class="mui-slider-item mui-slider-item-duplicate">
+            <a href="#">
+              <img src="../images/detail.jpg">
+            </a>
+          </div>
+          <!-- 第一张 -->
+          <div class="mui-slider-item">
+            <a href="#">
+              <img src="../images/detail.jpg">
+            </a>
+          </div>
+
+          <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+          <div class="mui-slider-item mui-slider-item-duplicate">
+            <a href="#">
+              <img src="../images/detail.jpg">
+            </a>
+          </div>
+        </div>
+        <div class="mui-slider-indicator">
+          <div class="mui-indicator mui-active"></div>
+        </div>
+      </div>
+      <!--商品简介-->
+      <div class="lt-product-name">
+        李宁闪击篮球鞋驭帅10镭射队尚4男韦德之道空袭中高帮队尚3.5球鞋
+      </div>
+      <!--商品价格-->
+      <div class="lt-product-price">
+        <span>价格:</span>
+        <strong>&yen;499.1</strong>
+        <small>&yen;888.1</small>
+      </div>
+      <!--商品尺码-->
+      <div class="lt-product-size">
+        尺码:
+        <span>35</span>
+        <span>36</span>
+        <span>37</span>
+        <span>38</span>
+        <span>39</span>
+        <span>40</span>
+        <span>41</span>
+        <span>42</span>
+        <span>43</span>
+        <span>44</span>
+        <span>45</span>
+      </div>
+      <!--商品数量-->
+      <div class="lt-product-num">
+        <span>数量:</span>
+        <div class="mui-numbox">
+          <!-- "-"按钮，点击可减小当前数值 -->
+          <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+          <input class="mui-numbox-input" type="number" />
+          <!-- "+"按钮，点击可增大当前数值 -->
+          <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+        </div>
+        <span>剩余:20件</span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--#####商品详情模板-->
+  <script type="text/template" id="product-template">
+    <div class="mui-scroll">
+      <!--这里放置真实显示的DOM内容-->
+
+      <!-- 轮播图 -->
+      <div id="slider" class="mui-slider">
+        <div class="mui-slider-group">
+          <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+          <div class="mui-slider-item mui-slider-item-duplicate">
+            <a href="#">
+              <img src="<%=pic[0].picAddr%>">
+            </a>
+          </div>
+          <!-- 第一张 -->
+          <div class="mui-slider-item">
+            <a href="#">
+              <img src="<%=pic[0].picAddr%>">
+            </a>
+          </div>
+
+          <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+          <div class="mui-slider-item mui-slider-item-duplicate">
+            <a href="#">
+              <img src="<%=pic[0].picAddr%>">
+            </a>
+          </div>
+        </div>
+        <div class="mui-slider-indicator">
+          <div class="mui-indicator mui-active"></div>
+        </div>
+      </div>
+      <!--商品简介-->
+      <div class="lt-product-name">
+      <%=proName%>
+      </div>
+      <!--商品价格-->
+      <div class="lt-product-price">
+        <span>价格:</span>
+        <strong><%=price%></strong>
+        <small><%=oldPrice%></small>
+      </div>
+      <!--商品尺码-->
+      <div class="lt-product-size">
+        尺码:
+        <span>35</span>
+        <span>36</span>
+        <span>37</span>
+        <span>38</span>
+        <span>39</span>
+        <span>40</span>
+        <span>41</span>
+        <span>42</span>
+        <span>43</span>
+        <span>44</span>
+        <span>45</span>
+      </div>
+      <!--商品数量-->
+      <div class="lt-product-num">
+        <span>数量:</span>
+        <div class="mui-numbox" data-numbox-min='0' data-numbox-max='<%=num%>'>
+          <!-- "-"按钮，点击可减小当前数值 -->
+          <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+          <input class="mui-numbox-input" type="number" />
+          <!-- "+"按钮，点击可增大当前数值 -->
+          <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+        </div>
+        <span>剩余:<%=num%>件</span>
+      </div>
+    </div>
+  </script>
+
+  <!--数量模板-->
+   <script type="text/template" id="size-template">
+   尺码:
+   <%for(var i = startNum ; i < endNum;i++) {%>
+      <span><%=i%></span>
+   <%}%>
+
+   </script>
+  <!-- 引入移动端的jquery -->
+  <script src="../lib/zepto-notouch/zepto.min.js"></script>
+  <!-- 引入mui的js -->
+  <script src="../lib/mui/js/mui.min.js"></script>
+  <script src="../lib/artTemplate/template-native.js"></script>
+  <!-- 引入当前页面的js -->
+  <script src="../js/detail.js"></script>
+</body>
+
+</html>

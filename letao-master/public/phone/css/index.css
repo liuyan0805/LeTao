@@ -1,0 +1,168 @@
+
+
+/* 内容区域 */
+
+/* 1.轮播图 */
+
+/* 2.九宫格 */
+.lt-nine-box {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  background-color: #fff;
+  overflow: hidden;
+} 
+
+.lt-nine-box a {
+  float: left;
+  display: block;
+  width: 33.3333%;
+}
+
+.lt-nine-box img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+
+/* 3.售卖 */
+.lt-sale {
+  width: 100%;
+  padding: 0 10px;
+  border-top: 1px solid #ccc;
+}
+
+.lt-sale ul {
+  width: 100%;
+  overflow: hidden;
+}
+
+.lt-sale li{
+  float: left;
+   width: 67.1%;
+   font-size: 0;
+}
+
+.lt-sale a {
+  display: inline-block;
+  width: 50%;
+}
+
+.lt-sale img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.lt-sale li:nth-child(2) {
+  float: right;
+  width: 32.9%;
+}
+
+.lt-sale li:nth-child(2) a {
+  width: 100%;
+}
+
+/* 品牌专区 */
+.lt-brand {
+  width: 100%;
+  padding: 10px 10px 0px;
+}
+
+.lt-brand-tittle {
+  width: 100%;
+}
+
+.lt-brand-tittle img {
+  width: 100%;
+}
+
+.lt-brand-content {
+  width: 100%;
+  font-size: 0;
+}
+
+.lt-brand-content a {
+  /* float:left 在移动端布局的时候尽量少用 会稍微的影响渲染 */
+ display: inline-block;
+  width: 25%;
+}
+
+.lt-brand-content img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+
+/* 运动生活专区 */
+.lt-sports {
+  width: 100%;
+  padding: 0 10px;
+  background-color: #fff;
+}
+
+.lt-sports-title img {
+  width: 100%;
+  vertical-align: middle;
+  margin-bottom: 15px;
+}
+
+.lt-sports-content {
+  width: 100%;
+}
+
+.lt-sports-content ul {
+  width: 100%;
+  overflow: hidden;
+}
+
+.lt-sports-content li {
+  float: left;
+  width: 50%;
+  padding: 0 4px;
+  margin-bottom: 15px;
+}
+
+.lt-item {
+  width: 100%;
+  background-color: #fff;
+  /* box-shadow: 0 0 5px rgba(0,0,0,0.4); */
+  border: 1px solid #ccc;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.lt-item img {
+  width: 100%;
+}
+
+.lt-item p {
+  padding: 0 10px;
+  height: 36px;
+  line-height: 18px;
+  overflow: hidden;
+}
+
+.lt-item .price {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.lt-item .price span:first-child {
+  color: rgb(243, 32, 32);
+  margin-right: 10px;
+}
+
+.lt-item .price span:last-child {
+  color: #999;
+  text-decoration: line-through;
+}
+
+.lt-item  a {
+  padding: 5px 8px;
+  background-color: #006699;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 14px;
+}

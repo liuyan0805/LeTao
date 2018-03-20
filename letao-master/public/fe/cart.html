@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>乐淘云购</title>
+  <!-- 引入浏览器的默认样式 -->
+  <link rel="stylesheet" href="./css/reset.css">
+  <!-- 引入字体图标库(在该项目中我们用font-awesome字体图标 不用MUI自带的) -->
+  <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+  <!-- 引入MUI的css库 -->
+  <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+  <!-- 引入公共样式 -->
+  <link rel="stylesheet" href="./css/common.css">
+  <!-- 引入当前页面的样式 -->
+  <link rel="stylesheet" href="./css/cart.css">
+  <!-- 引入网站的favicon -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <!-- 1.头部 -->
+  <header class="lt-header  mui-bar mui-bar-nav">
+    <!-- /mui-plus-visible 是让a标签隐藏 -->
+    <a class="fa fa-arrow-left lt-header-back"></a>
+    <!-- mui-pull-right右浮动 -->
+    <a class="fa fa-refresh mui-pull-right lt-header-refresh "></a>
+    <h1 class="mui-title lt-header-title">购物车</h1>
+  </header>
+  <!-- 2.底部 -->
+  <nav class="mui-bar mui-bar-tab lt-footer">
+    <a class="mui-item " href="./index.html">
+      <span class="fa fa-home"></span>
+      <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-item " href="./sort.html">
+      <span class="fa fa-bars"></span>
+      <span class="mui-tab-label">分类</span>
+    </a>
+    <a class="mui-item mui-active" href="./cart.html">
+      <span class="fa fa-shopping-cart"></span>
+      <span class="mui-tab-label">购物车</span>
+    </a>
+    <a class="mui-item" href="./center.html">
+      <span class="fa fa-user"></span>
+      <span class="mui-tab-label">个人中心</span>
+    </a>
+  </nav>
+  <!-- 3.滚动区域 -->
+  <div class="mui-content">
+    <ul id="OA_task_1" class="mui-table-view">
+      <li class="mui-table-view-cell mui-transitioning">
+        <div class="mui-slider-left mui-disabled">
+          <a class="mui-btn mui-btn-blue">编辑</a>
+        </div>
+        <div class="mui-slider-right mui-disabled">
+          <a class="mui-btn mui-btn-red" >删除</a>
+        </div>
+        <div class="mui-slider-handle">
+          <div class="goods">
+            <div class="goods-left">
+              <a href="javascript:;">
+                <img src="./images/product.jpg" alt="">
+              </a>
+              <input type="checkbox" name="" id="">
+            </div>
+            <div class="goods-right">
+              <p>匡威三星标1970s converse复刻 142334c 144757c三星标黑色高帮</p>
+              <div class="goods-right-extra">
+                <span class="extra-new">&yen;499.1</span>
+                <span class="extra-old">&yen;888.1</span>
+                <span class="extra-num">x2双</span>
+              </div>
+              <span class="goods-right-size">鞋码: 43</span>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- 购物车模板 -->
+  <script type="text/template" id="cart-template">
+    <%for(var i = 0;i< data.length; i++) {%>
+      <li class="mui-table-view-cell mui-transitioning">
+        <div class="mui-slider-left mui-disabled">
+          <!--  -->
+          <a class="mui-btn mui-btn-blue" data-id="<%=data[i].id%>" data-product-size="<%=data[i].productSize%>" data-size="<%=data[i].size%>" data-num="<%=data[i].num%>" data-product-num="<%=data[i].productNum%>"  >编辑</a>
+        </div>
+        <div class="mui-slider-right mui-disabled">
+          <a class="mui-btn mui-btn-red" data-id="<%=data[i].id%>">删除</a>
+        </div>
+      <div class="mui-slider-handle">
+        <div class="goods">
+          <div class="goods-left">
+            <a href="javascript:;">
+              <img src="<%=data[i].pic[0].picAddr%>" alt="">
+            </a>
+            <input type="checkbox" name="" id="">
+          </div>
+          <div class="goods-right">
+            <p><%=data[i].proName%></p>
+            <div class="goods-right-extra">
+              <span class="extra-new">&yen;<%=data[i].price%></span>
+              <span class="extra-old">&yen;<%=data[i].oldPrice%></span>
+              <span class="extra-num">x<%=data[i].num%>双</span>
+            </div>
+            <span class="goods-right-size">鞋码: <%=data[i].size%></span>
+          </div>
+        </div>
+      </div>
+    </li>
+    <%}%>
+  </script>
+
+  <!-- 编辑模板 -->
+  <script type="text/template" id="edit-template">
+    <div class="edit">
+        <div class="edit-size">
+          尺码: 
+          <%for(var i = data[0];i<=data[1];i++) {%>
+            <%if(i == size) {%>
+              <span class="active"><%=i%></span>
+              <% }else {%>
+              <span><%=i%></span>
+              <%}%>
+            <% }%>
+        </div>
+        <div class="edit-num">
+            <span>数量:</span>
+            <div class="mui-numbox" data-numbox-min='0' data-numbox-max='<%=productnum%>'>
+              <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+              <input class="mui-numbox-input" type="number" value="<%=num%>" />
+              <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+            </div>
+        </div>
+      </div>
+  </script>
+
+
+  <!-- 引入移动端的jquery -->
+  <script src="./lib/zepto-notouch/zepto.min.js"></script>
+  <!-- 引入mui的js -->
+  <script src="./lib/mui/js/mui.min.js"></script>
+  <!-- 引入模板库 -->
+  <script src="./lib/artTemplate/template-native.js"></script>
+  <!-- 引入当前页面的js -->
+  <script src="./js/cart.js"></script>
+</body>
+
+</html>
